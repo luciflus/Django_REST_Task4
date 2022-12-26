@@ -19,13 +19,12 @@ from rest_framework import routers
 
 from goods import views
 
-router = routers.DefaultRouter()
-router.register('goods', views.GoodsViewSet)
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/goods/', include(router.urls)),
-    path('api/company/', views.CompanyCreateListView.as_view()),
-    path('api/company/<int:pk>/', views.CompanyRetrieveUpdateDestroyAPIView.as_view()),
     path('api/category/', views.create_category),
+    path('api/category/<int:pk>/', views.detail_category),
+    path('api/company/', views.create_company),
+    path('api/company/<int:pk>/', views.detail_company),
+    path('api/goods/', views.create_goods),
+    path('api/goods/<int:pk>/', views.detail_goods),
 ]
